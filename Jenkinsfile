@@ -1,5 +1,8 @@
 pipeline{
     agent any
+    triggers {
+        githubPush()
+    }
     environment {
         dockerImage=''
         registry = 'abdelhamiedamr/jenkins-demo'
