@@ -9,9 +9,11 @@ pipeline{
             stage('Checkout'){
                 steps {
                     checkout scmGit(branches: [[name: '*/dev']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Hamiedamr/jenkins-demo']])
-                    bat 'pip install -r requirements.txt'
-                    bat 'pytest app'
-    
+                    withPythonEnv ('D:\\hamied\\CICD\\jenkins-demo\\env\\Scripts\\') {
+                        bat 'pip install -r requirements.txt'
+                        bat 'pytest app'
+        
+                    }
                 }
             }
             stage('Build Docker Image') {
