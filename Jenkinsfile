@@ -1,8 +1,5 @@
 pipeline{
     agent any
-    triggers {
-        githubPush()
-    }
     environment {
         dockerImage=''
         registry = 'abdelhamiedamr/jenkins-demo'
@@ -12,6 +9,10 @@ pipeline{
             stage('Checkout'){
                 steps {
                     checkout scmGit(branches: [[name: '*/dev']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Hamiedamr/jenkins-demo']])
+                    withPythonEnv ('python3') {
+                        sh 'pip install -r requirements.txt'
+                        sh 'pytest app'
+                    }
                 }
             }
             stage('Build Docker Image') {
