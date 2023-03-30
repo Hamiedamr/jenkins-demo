@@ -9,8 +9,8 @@ pipeline{
             stage('Checkout'){
                 steps {
                     checkout scmGit(branches: [[name: '*/dev']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Hamiedamr/jenkins-demo']])
-                    sh 'pip install -r requirements.txt'
-                    sh 'pytest app'
+                    bat 'pip install -r requirements.txt'
+                    bat 'pytest app'
     
                 }
             }
