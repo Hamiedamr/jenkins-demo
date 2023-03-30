@@ -6,6 +6,4 @@ app = FastAPI(title="Jenkins Demo")
 
 @app.get("/", response_class=HTMLResponse)
 def home():
-    return """
-    <h1> Jenkins DEMO :)!</h1>
-    """
+    return """<h1> Jenkins DEMO :)!</h1>"""
