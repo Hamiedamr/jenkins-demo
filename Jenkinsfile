@@ -6,7 +6,7 @@ pipeline{
         registryCredential='abdelhamiedamr_id'
     }
         stages {
-            stage('Checkout'){
+            stage('Test'){
                 steps {
                     checkout scmGit(branches: [[name: '*/dev']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Hamiedamr/jenkins-demo']])
                     withPythonEnv ('D:\\hamied\\CICD\\jenkins-demo\\env\\Scripts\\') {
