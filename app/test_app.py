@@ -6,4 +6,4 @@ client = TestClient(app)
 def test_read_main():
     response = client.get("/")
     assert response.status_code == 200
-    assert response.text == "<h1> Jenkins DEMO :)!</h1>"
+    assert response.text == "<h1> Jenkins DEMO :)</h1>"
